@@ -20,16 +20,68 @@ body {
     background-color: var(--almost-withe);
 }
 
-.header-mobile {
+body.escurecer::before {
+    content: "";
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 26, 0.5);
+    top: 0;
+    left: 0;
+}
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+
+    max-width: 1110px;
+    margin-inline: auto;
 }
 
-.header-mobile button {
+header button {
     border: none;
     background: none;
+    width: fit-content;
+}
+
+header nav.mobile {
+   position: fixed; 
+   background-color: var(--almost-withe);
+   right: -16rem;
+   top: 0;
+   height: 100vh;
+   width: 16rem;
+   z-index: 999;
+
+   display: flex;
+   flex-direction: column;
+   padding: 1.5rem;
+   gap: 1.5rem;
+   
+   transition: 0.7s;
+
+}
+
+header nav.mobile.abrir {
+    right: 0;
+}
+
+header nav button {
+    aling-self: flex-end;
+    margin-bottom: 4rem;
+}
+
+header .mobile nav a {
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+}
+
+main {
+    max-width: 1110px;
 }
 
 .primeira-secao {
@@ -130,4 +182,23 @@ body {
     font-size: 0.9374rem;
     line-height: 1.625rem;
     color: var(--gunmetal);
+}
+
+
+@media(min-width: 1110px) {
+    header > button {
+        display: none;
+    }
+
+    header .desktop {
+        display: flex;
+        gap: 2.5rem;
+    }
+
+    header .desktop a {
+        font-size: 0.9375rem;
+        line-height: 1.625rem;
+        text-decoration: none;
+        color: var(--gunmetal);
+    }
 }
